@@ -59,7 +59,7 @@ def get_image_from_window(bounds, src_crs):
     if best_item is None:
         return None, None
 
-    dst_crs = best_item.properties["proj:epsg"]
+    dst_crs = best_item.properties["proj:code"]
     url = best_item.assets["image"].href
     warped_geom = fiona.transform.transform_geom("EPSG:4326", dst_crs, warped_geom)
 
