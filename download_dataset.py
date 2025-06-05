@@ -85,7 +85,7 @@ def main(args):
     # Get all windows
     remaining_windows = []
     remaining_idxs = []
-    with fiona.open("data/patches.gpkg") as f:
+    with fiona.open("/kaggle/working/ChesapeakeRSC/data/patches.gpkg") as f:
         src_crs = f.crs
         for row in tqdm(f):
             minx = row["properties"]["minx"]
