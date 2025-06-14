@@ -94,8 +94,8 @@ def main(args):
             maxy = row["properties"]["maxy"]
             idx = row["properties"]["idx"]
             key = (minx, miny, maxx, maxy)
-            # if(idx==10):
-            #     print("ON 10")
+            if(idx==11):
+                print("ON 11")
             # print(f"Processing {key} {idx}")
             image_fn = os.path.join(args.output_dir, f"{idx}_image.tif")
             mask_fn = os.path.join(args.output_dir, f"{idx}_mask.tif")
