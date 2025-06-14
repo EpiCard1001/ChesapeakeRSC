@@ -94,6 +94,8 @@ def main(args):
             maxy = row["properties"]["maxy"]
             idx = row["properties"]["idx"]
             key = (minx, miny, maxx, maxy)
+            if(idx==11):
+                print("ON 11")
             # print(f"Processing {key} {idx}")
             image_fn = os.path.join(args.output_dir, f"{idx}_image.tif")
             mask_fn = os.path.join(args.output_dir, f"{idx}_mask.tif")
@@ -109,7 +111,7 @@ def main(args):
                 if args.end_idx is not None and idx >= args.end_idx:
                     # print(f"Skipping {key} {idx} (after end index)")
                     continue
-                print(f"Adding {key} {idx}")
+                print(f"Adding  {idx}")
                 remaining_windows.append(key)
                 remaining_idxs.append(idx)
 
