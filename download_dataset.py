@@ -94,7 +94,7 @@ def main(args):
             maxy = row["properties"]["maxy"]
             idx = row["properties"]["idx"]
             key = (minx, miny, maxx, maxy)
-            print(f"Processing {key} {idx}")
+            # print(f"Processing {key} {idx}")
             image_fn = os.path.join(args.output_dir, f"{idx}_image.tif")
             mask_fn = os.path.join(args.output_dir, f"{idx}_mask.tif")
             if os.path.exists(image_fn) and os.path.exists(mask_fn):
@@ -104,11 +104,12 @@ def main(args):
                 assert not os.path.exists(image_fn)
                 assert not os.path.exists(mask_fn)
                 if args.start_idx is not None and idx < args.start_idx:
-                    print(f"Skipping {key} {idx} (before start index)")
+                    # print(f"Skipping {key} {idx} (before start index)")
                     continue
                 if args.end_idx is not None and idx >= args.end_idx:
-                    print(f"Skipping {key} {idx} (after end index)")
+                    # print(f"Skipping {key} {idx} (after end index)")
                     continue
+                print(f"Adding {key} {idx}")
                 remaining_windows.append(key)
                 remaining_idxs.append(idx)
 
