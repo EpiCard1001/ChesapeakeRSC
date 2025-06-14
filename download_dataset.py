@@ -94,13 +94,13 @@ def main(args):
             maxy = row["properties"]["maxy"]
             idx = row["properties"]["idx"]
             key = (minx, miny, maxx, maxy)
-            if(idx==10):
-                print("ON 10")
+            # if(idx==10):
+            #     print("ON 10")
             # print(f"Processing {key} {idx}")
             image_fn = os.path.join(args.output_dir, f"{idx}_image.tif")
             mask_fn = os.path.join(args.output_dir, f"{idx}_mask.tif")
             if os.path.exists(image_fn) and os.path.exists(mask_fn):
-                print(f"Skipping {key} {idx} (already exists)")
+                # print(f"Skipping {key} {idx} (already exists)")
                 continue
             else:
                 assert not os.path.exists(image_fn)
@@ -111,7 +111,7 @@ def main(args):
                 if args.end_idx is not None and idx >= args.end_idx:
                     # print(f"Skipping {key} {idx} (after end index)")
                     continue
-                print(f"Adding  {idx}")
+                # print(f"Adding  {idx}")
                 remaining_windows.append(key)
                 remaining_idxs.append(idx)
 
@@ -135,7 +135,7 @@ def main(args):
                 break
             except (pystac_client.exceptions.APIError, rasterio.errors.RasterioIOError):
                 retried += 1
-                time.sleep(2**retried)
+                # time.sleep(2**retried)
                 print(f"Retrying {idx} {retried} times")
 
         if out_image is None:
