@@ -116,7 +116,7 @@ def main(args: argparse.Namespace) -> None:
 
     trainer = pl.Trainer(
         accelerator="gpu",
-        devices=gpu_id,
+        # devices=gpu_id,
         min_epochs=args.num_epochs,
         max_epochs=args.num_epochs,
         log_every_n_steps=15,
