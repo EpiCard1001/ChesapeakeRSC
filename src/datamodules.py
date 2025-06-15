@@ -38,10 +38,10 @@ class ChesapeakeRSCDataModule(NonGeoDataModule):
 
         self.train_aug = AugmentationSequential(
             *augmentations,
-            data_keys=["image", "mask"],
+            data_keys=None,
         )
         self.aug = AugmentationSequential(
-            K.Normalize(mean=self.mean, std=self.std), data_keys=["image", "mask"]
+            K.Normalize(mean=self.mean, std=self.std), data_keys=None
         )
 
     def setup(self, stage: str) -> None:
